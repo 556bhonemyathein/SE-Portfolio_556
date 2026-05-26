@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "motion/react";
 import {
@@ -1779,10 +1780,27 @@ function ContactSection() {
   });
   const [sent, setSent] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setForm({ name: "", email: "", subject: "", message: "" });
+    try {
+      await emailjs.send(
+        "service_k4m5z5h",
+        "template_80qy4vo",
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        "Ekli_bK8Yw24dVtoE"
+      );
+
+      setSent(true);
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send message");
+    }
   };
 
   return (
