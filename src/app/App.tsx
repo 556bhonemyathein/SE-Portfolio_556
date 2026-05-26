@@ -1864,8 +1864,8 @@ function ContactSection() {
             <FadeUp delay={0.15}>
               <motion.a
                 whileHover={{ x: 3 }}
-                href="/resume.pdf"
-                download="resume.pdf"
+                href="/556_resume.pdf"
+                download="556_resume.pdf"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/[0.07] bg-[#111118] hover:border-white/[0.12] transition-colors group"
               >
                 <div
