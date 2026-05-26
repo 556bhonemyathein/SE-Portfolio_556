@@ -55,82 +55,82 @@ const SKILLS: {
   color: string;
   items: { name: string; note?: string }[];
 }[] = [
-  {
-    icon: <Layers size={15} />,
-    title: "State Management",
-    color: A,
-    items: [
-      { name: "setState", note: "Local state" },
-      { name: "Provider", note: "DI + ChangeNotifier" },
-      { name: "Riverpod", note: "Compile-safe" },
-      { name: "BLoC / Cubit", note: "Event-driven" },
-      { name: "GetX", note: "Lightweight reactive" },
-    ],
-  },
-  {
-    icon: <Database size={15} />,
-    title: "Networking & Data",
-    color: "#06B6D4",
-    items: [
-      { name: "HTTP package" },
-      { name: "Dio", note: "Interceptors" },
-      { name: "Retrofit", note: "Type-safe client" },
-      { name: "REST API integration" },
-      { name: "Image upload" },
-      { name: "Postman / Scalar" },
-    ],
-  },
-  {
-    icon: <Shield size={15} />,
-    title: "Authentication",
-    color: "#10B981",
-    items: [
-      { name: "Username & Password" },
-      { name: "Google Sign-In" },
-      { name: "Phone OTP" },
-      { name: "Firebase Auth" },
-      { name: "JWT Access Token" },
-      { name: "Refresh & Revoke", note: "Manual" },
-    ],
-  },
-  {
-    icon: <Code2 size={15} />,
-    title: "Firebase",
-    color: "#F59E0B",
-    items: [
-      { name: "Firestore real-time" },
-      { name: "Firebase Auth" },
-      { name: "Cloud Storage" },
-      { name: "Admin panel", note: "Role-based" },
-      { name: "User view", note: "Live sync" },
-    ],
-  },
-  {
-    icon: <GitBranch size={15} />,
-    title: "Architecture",
-    color: "#F472B6",
-    items: [
-      { name: "MVC" },
-      { name: "MVP" },
-      { name: "MVVM" },
-      { name: "Clean Architecture" },
-      { name: "Feature-first" },
-    ],
-  },
-  {
-    icon: <Smartphone size={15} />,
-    title: "Flutter & Dart",
-    color: A2,
-    items: [
-      { name: "Flutter (primary)" },
-      { name: "Responsive UI" },
-      { name: "Custom animations" },
-      { name: "Git / GitHub" },
-      { name: "json_serialization + build_runner" },
-      { name: "quicktype.io / jsontodart" },
-    ],
-  },
-];
+    {
+      icon: <Layers size={15} />,
+      title: "State Management",
+      color: A,
+      items: [
+        { name: "setState", note: "Local state" },
+        { name: "Provider", note: "DI + ChangeNotifier" },
+        { name: "Riverpod", note: "Compile-safe" },
+        { name: "BLoC / Cubit", note: "Event-driven" },
+        { name: "GetX", note: "Lightweight reactive" },
+      ],
+    },
+    {
+      icon: <Database size={15} />,
+      title: "Networking & Data",
+      color: "#06B6D4",
+      items: [
+        { name: "HTTP package" },
+        { name: "Dio", note: "Interceptors" },
+        { name: "Retrofit", note: "Type-safe client" },
+        { name: "REST API integration" },
+        { name: "Image upload" },
+        { name: "Postman / Scalar" },
+      ],
+    },
+    {
+      icon: <Shield size={15} />,
+      title: "Authentication",
+      color: "#10B981",
+      items: [
+        { name: "Username & Password" },
+        { name: "Google Sign-In" },
+        { name: "Phone OTP" },
+        { name: "Firebase Auth" },
+        { name: "JWT Access Token" },
+        { name: "Refresh & Revoke", note: "Manual" },
+      ],
+    },
+    {
+      icon: <Code2 size={15} />,
+      title: "Firebase",
+      color: "#F59E0B",
+      items: [
+        { name: "Firestore real-time" },
+        { name: "Firebase Auth" },
+        { name: "Cloud Storage" },
+        { name: "Admin panel", note: "Role-based" },
+        { name: "User view", note: "Live sync" },
+      ],
+    },
+    {
+      icon: <GitBranch size={15} />,
+      title: "Architecture",
+      color: "#F472B6",
+      items: [
+        { name: "MVC" },
+        { name: "MVP" },
+        { name: "MVVM" },
+        { name: "Clean Architecture" },
+        { name: "Feature-first" },
+      ],
+    },
+    {
+      icon: <Smartphone size={15} />,
+      title: "Flutter & Dart",
+      color: A2,
+      items: [
+        { name: "Flutter (primary)" },
+        { name: "Responsive UI" },
+        { name: "Custom animations" },
+        { name: "Git / GitHub" },
+        { name: "json_serialization + build_runner" },
+        { name: "quicktype.io / jsontodart" },
+      ],
+    },
+  ];
 
 const PROJECTS = [
   {
@@ -338,7 +338,7 @@ const fadeUp = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -420,14 +420,15 @@ function SlideIn({
 
 function Pill({
   color = A,
-  children,
+  children, className = "",
+
 }: {
   color?: string;
-  children: React.ReactNode;
+  children: React.ReactNode; className?: string;
 }) {
   return (
     <span
-      className="inline-flex items-center text-[10px] font-mono px-2 py-[3px] rounded-full border"
+      className={`inline-flex items-center text-[10px] font-mono px-2 py-[3px] rounded-full border ${className}`}
       style={{
         borderColor: `${color}30`,
         color: `${color}bb`,
@@ -1404,8 +1405,8 @@ function ProjectCardLarge({
                 (e.currentTarget.style.color = project.accent)
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.color =
-                  "rgba(255,255,255,0.2)")
+              (e.currentTarget.style.color =
+                "rgba(255,255,255,0.2)")
               }
             >
               <ExternalLink size={14} />
@@ -1864,7 +1865,7 @@ function ContactSection() {
               <motion.a
                 whileHover={{ x: 3 }}
                 href="/resume.pdf"
-                download="BhoneMyatHein_Resume.pdf"
+                download="resume.pdf"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/[0.07] bg-[#111118] hover:border-white/[0.12] transition-colors group"
               >
                 <div
@@ -2030,8 +2031,8 @@ function ContactSection() {
                       (e.target.style.borderColor = `${A}40`)
                     }
                     onBlur={(e) =>
-                      (e.target.style.borderColor =
-                        "rgba(255,255,255,0.07)")
+                    (e.target.style.borderColor =
+                      "rgba(255,255,255,0.07)")
                     }
                   />
                 </div>
@@ -2082,8 +2083,8 @@ function CField({
         className="rounded-xl bg-[#111118] border border-white/[0.07] text-white/65 text-sm px-4 py-2.5 focus:outline-none placeholder:text-white/15 transition-colors duration-150"
         onFocus={(e) => (e.target.style.borderColor = `${A}40`)}
         onBlur={(e) =>
-          (e.target.style.borderColor =
-            "rgba(255,255,255,0.07)")
+        (e.target.style.borderColor =
+          "rgba(255,255,255,0.07)")
         }
       />
     </div>
