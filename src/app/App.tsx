@@ -151,6 +151,7 @@ const PROJECTS = [
     tech: ["Flutter", "Firebase", "Firestore", "Provider"],
     year: "2025",
     status: "Completed",
+    github: "https://github.com/556bhonemyathein/guitercord",
   },
   {
     featured: true,
@@ -1400,7 +1401,7 @@ function ProjectCardLarge({
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.15 }}
-              href="#"
+              href={project.github}
               className="text-white/20 transition-colors"
               style={{}}
               onMouseEnter={(e) =>
