@@ -152,6 +152,7 @@ const PROJECTS = [
     year: "2025",
     status: "Completed",
     live: "https://github.com/556bhonemyathein/guitercord",
+    github: "https://github.com/556bhonemyathein?tab=repositories"
   },
   {
     featured: true,
@@ -1394,7 +1395,7 @@ function ProjectCardLarge({
           <div className="flex gap-2">
             <motion.a
               whileHover={{ scale: 1.15 }}
-              href="#"
+              href={project.github}
               className="text-white/20 hover:text-white/55 transition-colors"
             >
               <Github size={14} />
