@@ -1,4 +1,5 @@
 import emailjs from "@emailjs/browser";
+import profileImg from "../imports/556_image.png";
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "motion/react";
 import {
@@ -39,7 +40,7 @@ const PROFILE = {
   linkedin:
     "https://www.linkedin.com/in/bhone-myat-hein-840a173b4/",
   photo:
-    "../imports/556_image.png",
+    profileImg,
   available: true,
 };
 
