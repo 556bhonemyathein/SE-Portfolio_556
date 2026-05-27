@@ -39,7 +39,7 @@ const PROFILE = {
   linkedin:
     "https://www.linkedin.com/in/bhone-myat-hein-840a173b4/",
   photo:
-    "https://th.bing.com/th/id/R.97f2dcaf4201ecc11142b46b6514f47f?rik=9yUB20NfvHAarw&riu=http%3a%2f%2fwww.hdwallpapers.in%2fwalls%2frango-HD.jpg&ehk=RcOrMq3rIATUp1h%2fURORrOcc50ab26dEbpTQ5c6zQDE%3d&risl=&pid=ImgRaw&r=0",
+    "../imports/556_image.png",
   available: true,
 };
 
